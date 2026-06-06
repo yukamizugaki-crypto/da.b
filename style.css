@@ -1,0 +1,574 @@
+/* ============================================================
+   da.b — Global Stylesheet  v2
+   参考: anatomica-kyoto.com レイアウト構造
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap');
+
+/* ── Reset ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+:root {
+  --black:  #ffffff;   /* now white background */
+  --border: #e2e2e2;   /* light gray border */
+  --muted:  #757575;   /* medium dark gray */
+  --light:  #555555;   /* secondary dark gray */
+  --white:  #0a0a0a;   /* main dark text color */
+
+  --font-ja: 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN',
+             'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro',
+             'Meiryo', sans-serif;
+  --font-en: 'Cormorant Garamond', Georgia, serif;
+
+  --header-h: 110px;   /* logo + nav combined */
+  --transition: 0.28s ease;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-ja);
+  font-size: 14px;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ============================================================
+   HEADER  — logo on top, nav below (anatomica style)
+   ============================================================ */
+.header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 1000;
+  background: var(--black);
+}
+
+/* ── Logo row ─────────────────────────────────────────────── */
+.header__logo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 40px 10px;
+  position: relative;
+}
+
+.header__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.header__logo img {
+  height: 52px;
+  width: auto;
+  display: block;
+  transition: height var(--transition);
+}
+
+/* ── Nav row ──────────────────────────────────────────────── */
+.header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.header__nav a {
+  display: block;
+  padding: 10px 16px;
+  font-family: var(--font-ja);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--light);
+  transition: color var(--transition);
+  position: relative;
+}
+
+
+
+.header__nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  width: 0; height: 1px;
+  background: var(--white);
+  transform: translateX(-50%);
+  transition: width var(--transition);
+}
+
+.header__nav a:hover,
+.header__nav a.active { color: var(--white); }
+
+.header__nav a:hover::after,
+.header__nav a.active::after { width: 60%; }
+
+/* ── SNS Link Icons ───────────────────────────────────────── */
+.header__sns {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon-sns {
+  width: 18px;
+  height: 18px;
+  fill: var(--light);
+  transition: fill var(--transition);
+  display: block;
+}
+
+.header__sns a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.header__sns a:hover .icon-sns {
+  fill: var(--white);
+}
+
+/* ── Hamburger (mobile) ───────────────────────────────────── */
+.header__hamburger {
+  display: none;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.header__hamburger span {
+  display: block;
+  width: 24px; height: 1px;
+  background: var(--white);
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.header__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.header__hamburger.open span:nth-child(2) { opacity: 0; }
+.header__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── Mobile overlay ───────────────────────────────────────── */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--black);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.mobile-menu.open { display: flex; }
+
+.mobile-menu__sns {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: 10px;
+}
+
+.mobile-menu__sns a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.mobile-menu__sns .icon-sns {
+  width: 22px;
+  height: 22px;
+  fill: var(--light);
+  transition: fill var(--transition);
+}
+
+.mobile-menu__sns a:hover .icon-sns {
+  fill: var(--white);
+}
+
+.mobile-menu a {
+  font-family: var(--font-ja);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--light);
+  transition: color var(--transition);
+}
+
+.mobile-menu a:hover { color: var(--white); }
+
+/* ============================================================
+   PAGE WRAPPER
+   ============================================================ */
+.page {
+  padding-top: var(--header-h);
+  min-height: 100vh;
+}
+
+/* Banner with margins and uniform 3:2 aspect ratio */
+.photo-banner {
+  max-width: 860px;
+  margin: 40px auto 0;
+  padding: 0 40px;
+  overflow: hidden;
+}
+
+.photo-banner img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+}
+
+/* Map illustration — display at natural size, no crop */
+.photo-banner--map img {
+  aspect-ratio: unset;
+  object-fit: contain;
+  background: #ffffff;
+}
+
+.photo-banner--map a {
+  display: block;
+  transition: opacity var(--transition);
+}
+
+.photo-banner--map a:hover {
+  opacity: 0.85;
+}
+
+/* Slideshow with margins and full aspect ratio (same size as photo-banner) */
+.photo-slideshow {
+  max-width: 860px;
+  margin: 20px auto 0;
+  padding: 0 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-slideshow__slide {
+  position: absolute;
+  top: 0;
+  left: 40px;
+  width: calc(100% - 80px);
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+  z-index: 1;
+}
+
+.photo-slideshow__slide:first-child {
+  position: relative;
+  left: 0;
+  width: 100%;
+  padding: 0;
+}
+
+.photo-slideshow__slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.photo-slideshow img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+}
+
+/* ============================================================
+   CONTENT CONTAINER
+   ============================================================ */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section {
+  padding: 72px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.section:last-child { border-bottom: none; }
+
+/* ── Page heading ─────────────────────────────────────────── */
+.page-title {
+  font-family: var(--font-en);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 40px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.page-title--below-hero {
+  margin-top: 32px;
+}
+
+.page-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Body text ────────────────────────────────────────────── */
+.body-text {
+  font-size: 13px;
+  line-height: 2.4;
+  letter-spacing: 0.07em;
+  color: var(--light);
+  font-weight: 600;
+}
+
+/* ============================================================
+   MENU LIST  (food / drink)
+   ============================================================ */
+.menu-list { list-style: none; }
+
+.menu-category {
+  font-family: var(--font-en);
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 12px;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--border);
+  margin-top: 52px;
+}
+
+.menu-category:first-child { margin-top: 0; }
+
+.menu-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.menu-item:last-child { border-bottom: none; }
+
+.menu-item__name {
+  font-family: var(--font-ja);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.menu-item__price {
+  font-family: var(--font-en);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--light);
+  white-space: nowrap;
+  margin-left: 20px;
+}
+
+/* ============================================================
+   ACCESS
+   ============================================================ */
+.access-address {
+  font-family: var(--font-en);
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  line-height: 1.8;
+  color: var(--white);
+  margin-bottom: 36px;
+}
+
+.br-mobile {
+  display: inline;
+}
+
+@media (min-width: 769px) {
+  .br-mobile {
+    display: none;
+  }
+}
+
+.access-rows { list-style: none; margin-bottom: 0; }
+
+.access-row {
+  display: flex;
+  gap: 24px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--light);
+}
+
+.access-row:first-child { border-top: 1px solid var(--border); }
+
+.access-row__key {
+  font-family: var(--font-en);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  min-width: 140px;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+/* Map styled like photo-banner */
+.map-banner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.map-banner iframe {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  display: block;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .map-banner { padding: 0 20px; }
+  .map-banner iframe { aspect-ratio: 4 / 3; }
+}
+
+/* ============================================================
+   RESERVATION
+   ============================================================ */
+.rsv-list { list-style: none; margin-top: 52px; }
+
+.rsv-item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.rsv-item:first-child { border-top: 1px solid var(--border); }
+
+.rsv-item__key {
+  font-family: var(--font-en);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  min-width: 120px;
+}
+
+.rsv-item__val {
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: var(--white);
+}
+
+.rsv-item__val a {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.rsv-item__val a:hover {
+  color: var(--light);
+  border-color: var(--muted);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 36px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer__logo {
+  font-family: var(--font-en);
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  color: var(--white);
+}
+
+.footer__copy {
+  font-family: var(--font-en);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  :root { --header-h: 90px; }
+
+  .header__logo-row { padding: 14px 20px 8px; position: relative; }
+  .header__logo img { height: 40px; }
+  .header__hamburger { display: flex; }
+  .header__nav { display: none; }
+  .header__sns { display: none; }
+
+  .container { padding: 0 20px; }
+  .section { padding: 52px 0; }
+
+  .photo-banner { padding: 0 20px; }
+
+  .photo-slideshow { padding: 0 20px; }
+  .photo-slideshow__slide {
+    left: 20px;
+    width: calc(100% - 40px);
+  }
+  .photo-slideshow__slide:first-child {
+    left: 0;
+    width: 100%;
+  }
+
+  .map-wrap { aspect-ratio: 4 / 3; }
+
+  .footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; }
+
+  .access-row { flex-direction: column; gap: 4px; }
+
+  .rsv-item { flex-direction: column; align-items: flex-start; gap: 6px; }
+
+  .page-title { margin-top: 28px; margin-bottom: 16px; }
+  .page-title--below-hero { margin-top: 20px; }
+}
+
+@media (max-width: 480px) {
+  .header__logo { font-size: 20px; }
+  .body-text { font-size: 12px; }
+  .access-address { font-size: 13px; }
+}
