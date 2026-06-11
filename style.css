@@ -244,6 +244,10 @@ img { display: block; max-width: 100%; }
 }
 
 /* Map illustration — display at natural size, no crop */
+.photo-banner--map {
+  max-width: 573px; /* 2/3 of 860px */
+}
+
 .photo-banner--map img {
   aspect-ratio: unset;
   object-fit: contain;
@@ -365,7 +369,7 @@ img { display: block; max-width: 100%; }
   .rsv-text {
     /* Using clamp and vw (viewport width) to scale fluidly with screen size.
        This prevents line wrapping on all mobile device widths. */
-    font-size: clamp(9.5px, 3.1vw, 13px);
+    font-size: clamp(7px, 2.1vw, 11px);
     line-height: 2.2;
     letter-spacing: 0.04em;
   }
@@ -594,6 +598,7 @@ img { display: block; max-width: 100%; }
   .section { padding: 52px 0; }
 
   .photo-banner { padding: 0 20px; }
+  .photo-banner--map { max-width: 100%; }
 
   .photo-slideshow { padding: 0 20px; }
   .photo-slideshow__slide {
