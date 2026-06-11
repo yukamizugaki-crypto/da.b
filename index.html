@@ -7,7 +7,7 @@
   <meta name="description" content="da.bはフランス産をメインにした自然派ワインとシンプルだけど丁寧に作られた料理を心地良い空間と音楽で楽しむフレンチビストロ。千葉市中央区弁天。">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="top">
 
   <!-- ===== HEADER ===== -->
   <header class="header" id="header">
@@ -30,22 +30,23 @@
 
     <!-- Nav -->
     <nav class="header__nav">
-      <a href="index.html" class="active">about</a>
-      <a href="food.html">food</a>
-      <a href="drink.html">drink</a>
-      <a href="access.html">access</a>
-      <a href="reservation.html">reservation</a>
+      <a href="#top">top</a>
+      <a href="#about">about</a>
+      <a href="#food">food</a>
+      <a href="#drink">drink</a>
+      <a href="#access">access</a>
+      <a href="#reservation">reservation</a>
     </nav>
 
   </header>
 
   <!-- Mobile overlay -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html" onclick="closeMobile()">about</a>
-    <a href="food.html" onclick="closeMobile()">food</a>
-    <a href="drink.html" onclick="closeMobile()">drink</a>
-    <a href="access.html" onclick="closeMobile()">access</a>
-    <a href="reservation.html" onclick="closeMobile()">reservation</a>
+    <a href="#about" onclick="closeMobile()">about</a>
+    <a href="#food" onclick="closeMobile()">food</a>
+    <a href="#drink" onclick="closeMobile()">drink</a>
+    <a href="#access" onclick="closeMobile()">access</a>
+    <a href="#reservation" onclick="closeMobile()">reservation</a>
     
     <div class="mobile-menu__sns">
       <a href="https://www.instagram.com/da.b_beniyoshi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -62,32 +63,197 @@
 
     <!-- Hero photo -->
     <div class="photo-banner">
-      <img src="img/ヒーローセクション.jpg" alt="da.b フレンチビストロ 千葉">
+      <img src="img/ヒーローセクション.jpg?v=2" alt="da.b フレンチビストロ 千葉">
     </div>
 
-    <div class="container">
-      <h1 class="page-title page-title--below-hero">about</h1>
-    </div>
-
-    <!-- Sub photos slideshow (same size as photo-banner) -->
-    <div class="photo-slideshow">
-      <div class="photo-slideshow__slide active">
-        <img src="img/about1.jpg" alt="da.b 店内">
+    <!-- about section -->
+    <section class="section-container" id="about">
+      <div class="container">
+        <h1 class="page-title page-title--below-hero">about</h1>
       </div>
-      <div class="photo-slideshow__slide">
-        <img src="img/about2.jpg" alt="da.b 料理">
-      </div>
-    </div>
 
-    <!-- About text -->
-    <div class="container">
-      <section class="section">
-        <p class="body-text">
-          da.bはフランス産をメインにした自然派ワインとシンプルだけど丁寧に作られた料理を心地良い空間と音楽で楽しむフレンチビストロです。<br>
-          カウンターがメインなので1人でふらっとでもテーブルで仲間とワインと料理をじっくりでも。
-        </p>
-      </section>
-    </div>
+      <!-- Sub photos slideshow (same size as photo-banner) -->
+      <div class="photo-slideshow">
+        <div class="photo-slideshow__slide active">
+          <img src="img/about1.jpg" alt="da.b 店内">
+        </div>
+        <div class="photo-slideshow__slide">
+          <img src="img/about2.jpg" alt="da.b 料理">
+        </div>
+        <div class="photo-slideshow__slide">
+          <img src="img/about3.jpg" alt="da.b">
+        </div>
+      </div>
+
+      <!-- About text -->
+      <div class="container">
+        <section class="section">
+          <p class="body-text about-text">
+            da.bはフランス産をメインにした自然派ワインとシンプルだけど<br class="br-mobile">丁寧に作られた料理を<br class="br-desktop">心地良い空間と音楽で楽しむフレンチビストロです。<br>
+            カウンターがメインなので1人でふらっとでも<br class="br-mobile">テーブルで仲間とワインと料理をじっくりでも。
+          </p>
+        </section>
+      </div>
+    </section>
+
+    <!-- food section -->
+    <section class="section-container" id="food">
+      <div class="container">
+        <h1 class="page-title">food</h1>
+      </div>
+
+      <div class="photo-banner">
+        <img src="img/food.jpg" alt="da.b フード">
+      </div>
+
+      <div class="container">
+        <section class="section">
+          <ul class="menu-list">
+            <li class="menu-item">
+              <span class="menu-item__name">ダ・ベーのポテサラ</span>
+              <span class="menu-item__price">500</span>
+            </li>
+            <li class="menu-item">
+              <span class="menu-item__name">パテ・ド・カンパーニュ</span>
+              <span class="menu-item__price">750</span>
+            </li>
+            <li class="menu-item">
+              <span class="menu-item__name">アンディーブ・クレソン・ブルーチーズのサラダ</span>
+              <span class="menu-item__price">1500</span>
+            </li>
+            <li class="menu-item">
+              <span class="menu-item__name">ステーキフリット</span>
+              <span class="menu-item__price">2700</span>
+            </li>
+            <li class="menu-item">
+              <span class="menu-item__name">季節のメニュー</span>
+              <span class="menu-item__price">ASK</span>
+            </li>
+            <li class="menu-item">
+              <span class="menu-item__name">ピスタチオのクリームブリュレ</span>
+              <span class="menu-item__price">650</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <!-- drink section -->
+    <section class="section-container" id="drink">
+      <div class="container">
+        <h1 class="page-title">drink</h1>
+      </div>
+
+      <div class="photo-banner">
+        <img src="img/drink.jpg" alt="da.b ドリンク">
+      </div>
+
+      <div class="container">
+        <section class="section">
+          <ul class="menu-list">
+            <li class="menu-category">Natural Wine</li>
+            <li class="menu-item">
+              <span class="menu-item__name">GLASS</span>
+              <span class="menu-item__price">900 ~</span>
+            </li>
+            <li class="menu-item">
+              <span class="menu-item__name">BOTTLE</span>
+              <span class="menu-item__price">5500 ~</span>
+            </li>
+            <li class="menu-item menu-item--spaced">
+              <span class="menu-item__name">BEER（琥珀ヱビス）</span>
+              <span class="menu-item__price">650</span>
+            </li>
+            <li class="menu-category">Soft Drink</li>
+            <li class="menu-item">
+              <span class="menu-item__name">BIO GRAPE JUICE</span>
+              <span class="menu-item__price">900</span>
+            </li>
+            <li class="menu-item">
+              <span class="menu-item__name">MINERAL WATER (SPARKLING)</span>
+              <span class="menu-item__price">1300</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <!-- access section -->
+    <section class="section-container" id="access">
+      <div class="container">
+        <h1 class="page-title page-title--spaced">access</h1>
+      </div>
+
+      <div class="photo-banner photo-banner--map">
+        <a href="https://www.google.com/maps/search/?api=1&query=〒260-0045+千葉県千葉市中央区弁天1丁目1-2+1F" target="_blank" rel="noopener noreferrer">
+          <img src="img/access.png?v=2" alt="da.b アクセス地図">
+        </a>
+      </div>
+
+      <div class="container">
+        <section class="section">
+          <ul class="access-rows">
+            <li class="access-row">
+              <span class="access-row__key">OPEN HOUR</span>
+              <span>18:00 – 24:30 &nbsp;( LAST ORDER 23:30 )</span>
+            </li>
+            <li class="access-row">
+              <span class="access-row__key">CLOSE</span>
+              <span>MONDAY &nbsp;/&nbsp; NO.1 · 3 · 5 SUNDAY</span>
+            </li>
+            <li class="access-row">
+              <span class="access-row__key">TEL</span>
+              <span><a href="tel:043-216-2430">043-216-2430</a></span>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Google Map — full width like photo-banner -->
+      <div class="map-banner">
+        <iframe
+          title="da.b ワインビストロ の地図"
+          src="https://maps.google.com/maps?q=〒260-0045%20千葉県千葉市中央区弁天１丁目１−２%201F&z=17&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- reservation section -->
+    <section class="section-container" id="reservation">
+      <div class="container">
+        <h1 class="page-title page-title--spaced">reservation</h1>
+      </div>
+
+      <div class="photo-banner">
+        <img src="img/reservation.jpg" alt="da.b 座席">
+      </div>
+
+      <div class="container">
+        <section class="section">
+          <p class="body-text rsv-text">
+            御予約は、基本電話で承っております。定休日、電話が<br class="br-mobile">つながらない場合は<br class="br-desktop">INSTAGRAMのDMでお願い致します。<br class="br-mobile">アルコールを飲めない方でもご利用可能ですが、<br>基本料理はシェフが1人で作るので、混雑時はお時間を<br class="br-mobile">いただきますのでご理解ください。<br>ご予約のキャンセル・お時間や人数の<br class="br-mobile">変更がある場合は必ずご連絡ください。<span class="br-desktop">　</span><br class="br-mobile">※15時以降電話可
+          </p>
+
+          <ul class="rsv-list">
+            <li class="rsv-item">
+              <span class="rsv-item__key">TEL</span>
+              <span class="rsv-item__val">
+                <a href="tel:043-216-2430">043-216-2430</a>
+              </span>
+            </li>
+            <li class="rsv-item">
+              <span class="rsv-item__key">INSTAGRAM</span>
+              <span class="rsv-item__val">
+                <a href="https://www.instagram.com/da.b_beniyoshi/" target="_blank" rel="noopener noreferrer">da.b_beniyoshi</a>
+              </span>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </section>
 
   </main>
 

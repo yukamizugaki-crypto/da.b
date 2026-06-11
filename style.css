@@ -262,7 +262,7 @@ img { display: block; max-width: 100%; }
 /* Slideshow with margins and full aspect ratio (same size as photo-banner) */
 .photo-slideshow {
   max-width: 860px;
-  margin: 20px auto 0;
+  margin: 12px auto 0;
   padding: 0 40px;
   position: relative;
   overflow: hidden;
@@ -313,25 +313,34 @@ img { display: block; max-width: 100%; }
 
 .section:last-child { border-bottom: none; }
 
+.section-container {
+  scroll-margin-top: var(--header-h);
+}
+
 /* ── Page heading ─────────────────────────────────────────── */
 .page-title {
-  font-family: var(--font-en);
+  font-family: var(--font-ja);
   font-size: 10px;
   font-weight: 400;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.08em;
+  padding-left: 0.08em; /* Offset trailing letter-spacing to center text perfectly */
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--light);
   margin-top: 40px;
   margin-bottom: 24px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 18px;
 }
 
-.page-title--below-hero {
-  margin-top: 32px;
+.page-title--below-hero,
+.page-title--spaced {
+  margin-top: 100px;
+  margin-bottom: 12px;
 }
 
+.page-title::before,
 .page-title::after {
   content: '';
   flex: 1;
@@ -345,7 +354,35 @@ img { display: block; max-width: 100%; }
   line-height: 2.4;
   letter-spacing: 0.07em;
   color: var(--light);
-  font-weight: 600;
+  font-weight: 400;
+}
+
+.rsv-text {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .rsv-text {
+    /* Using clamp and vw (viewport width) to scale fluidly with screen size.
+       This prevents line wrapping on all mobile device widths. */
+    font-size: clamp(9.5px, 3.1vw, 13px);
+    line-height: 2.2;
+    letter-spacing: 0.04em;
+  }
+}
+
+.about-text {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .about-text {
+    /* Using clamp and vw to scale fluidly with screen size.
+       This prevents line wrapping for the longer 33-character about line on all mobile widths. */
+    font-size: clamp(8px, 2.4vw, 13px);
+    line-height: 2.2;
+    letter-spacing: 0.04em;
+  }
 }
 
 /* ============================================================
@@ -377,18 +414,22 @@ img { display: block; max-width: 100%; }
 
 .menu-item:last-child { border-bottom: none; }
 
+.menu-item--spaced {
+  margin-top: 36px;
+}
+
 .menu-item__name {
   font-family: var(--font-ja);
   font-size: 13px;
-  letter-spacing: 0.06em;
-  color: var(--white);
-  font-weight: 600;
+  letter-spacing: 0.07em;
+  color: var(--light);
+  font-weight: 400;
 }
 
 .menu-item__price {
-  font-family: var(--font-en);
+  font-family: var(--font-ja);
   font-size: 13px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.07em;
   color: var(--light);
   white-space: nowrap;
   margin-left: 20px;
@@ -410,9 +451,16 @@ img { display: block; max-width: 100%; }
   display: inline;
 }
 
+.br-desktop {
+  display: none;
+}
+
 @media (min-width: 769px) {
   .br-mobile {
     display: none;
+  }
+  .br-desktop {
+    display: inline;
   }
 }
 
@@ -429,12 +477,13 @@ img { display: block; max-width: 100%; }
 }
 
 .access-row:first-child { border-top: 1px solid var(--border); }
+.access-row:last-child { border-bottom: none; }
 
 .access-row__key {
-  font-family: var(--font-en);
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  color: var(--muted);
+  font-family: var(--font-ja);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--light);
   min-width: 140px;
   flex-shrink: 0;
   padding-top: 1px;
@@ -473,13 +522,14 @@ img { display: block; max-width: 100%; }
 }
 
 .rsv-item:first-child { border-top: 1px solid var(--border); }
+.rsv-item:last-child { border-bottom: none; }
 
 .rsv-item__key {
-  font-family: var(--font-en);
+  font-family: var(--font-ja);
   font-size: 10px;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--light);
   min-width: 120px;
 }
 
@@ -564,7 +614,8 @@ img { display: block; max-width: 100%; }
   .rsv-item { flex-direction: column; align-items: flex-start; gap: 6px; }
 
   .page-title { margin-top: 28px; margin-bottom: 16px; }
-  .page-title--below-hero { margin-top: 20px; }
+  .page-title--below-hero,
+  .page-title--spaced { margin-top: 120px; }
 }
 
 @media (max-width: 480px) {
