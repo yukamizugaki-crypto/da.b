@@ -266,7 +266,7 @@ img { display: block; max-width: 100%; }
 /* Slideshow with margins and full aspect ratio (same size as photo-banner) */
 .photo-slideshow {
   max-width: 860px;
-  margin: 12px auto 0;
+  margin: 40px auto 0;
   padding: 0 40px;
   position: relative;
   overflow: hidden;
@@ -338,7 +338,10 @@ img { display: block; max-width: 100%; }
   gap: 18px;
 }
 
-.page-title--below-hero,
+.page-title--below-hero {
+  margin-top: 100px;
+}
+
 .page-title--spaced {
   margin-top: 100px;
   margin-bottom: 12px;
@@ -586,6 +589,8 @@ img { display: block; max-width: 100%; }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 768px) {
+  .u-hide-mobile { display: none !important; }
+
   :root { --header-h: 90px; }
 
   .header__logo-row { padding: 14px 20px 8px; position: relative; }
